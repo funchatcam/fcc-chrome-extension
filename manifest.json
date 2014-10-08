@@ -1,0 +1,14 @@
+{
+   "background_page": "background.html",
+   "browser_action": {
+      "default_icon": "icon.png",
+      "default_title": "Funchatcam",
+      "popup": "popup.html"
+   },
+   "description": "Funchatcam Webcam Chat Extension. Lets you easily see who's online.",
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZ7djS0D+QgxYrWGH9b803rQVbC8/thiQJdrzKVcwxZqt9ytksYJccxd++Mg7SDrn4FtIHTYVdsZ3qg0oHLx05Y4p4qHT2KJpd5oVe8kXA2VweG/K5adYcLillc6Iqz8OSFPtLXej4jf4vn/UoHp5DIKegGziW/hpvCwRPTSPuTwIDAQAB",
+   "name": "Funchatcam",
+   "permissions": [ "http://funchatcam.com/" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.1"
+}

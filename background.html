@@ -1,0 +1,47 @@
+<html>
+  <head>
+  <meta http-equiv="refresh" content="300">
+  </head>
+  <script src="http://code.jquery.com/jquery-1.4.4.js"></script>
+  <script>
+     
+     get_chatters();
+
+
+function get_chatters() {	  
+  var chatters=0;
+  var title=' ';
+  
+    $.getJSON("http://funchatcam.com/api/status",function(result){
+    $.each(result, function(i, field){
+	chatters++;
+	    });
+		//alert("in chat: " + chatters);
+		chatters = ' ' + chatters + ' ';
+        title = 'FCC ' + chatters + ' users online';
+	    chrome.browserAction.setBadgeText({text:chatters});
+		chrome.browserAction.setTitle({title:title})
+		//alert(chatters);
+		//notify(chatters + " online in FCC");
+  });	
+}
+
+	
+
+	
+function notify(message) {
+     
+     var time = /(..)(:..)/(Date());              // The prettyprinted time.
+     var hour = time[1] % 12 || 12;               // The prettyprinted hour.
+     var period = time[1] < 12 ? 'am' : 'pm'; // The period of the day.
+     var notification = webkitNotifications.createNotification(
+       'icon.png',                      // The image.
+       "funchatcam.com " + hour + time[2] + period, // The title.
+       message    // The body.
+     );
+     notification.show();
+	 notification.close();
+   }
+
+  </script>
+</html>
