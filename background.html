@@ -12,7 +12,7 @@ function get_chatters() {
   var chatters=0;
   var title=' ';
   
-    $.getJSON("http://funchatcam.com/api/status",function(result){
+    $.getJSON("https://www.funchatcam.com/api/status",function(result){
     $.each(result, function(i, field){
 	chatters++;
 	    });
@@ -23,9 +23,7 @@ function get_chatters() {
   });	
 }
 
-	
 
-	
 function notify(message) {
      
      var time = /(..)(:..)/(Date());              // The prettyprinted time.

@@ -1,25 +1,22 @@
+//chrome.browserAction.setBadgeText({text: '...'});
+//chrome.browserAction.setBadgeBackgroundColor({color: '#4688F1'});
 
+fccUpdate();
 
-/**
- * Initializes everything.
- */
-function init() {
-  badgeAnimation_ = new BadgeAnimation();
-  canvasAnimation_ = new CanvasAnimation();
+setInterval(fccUpdate, 3 * 60 * 1000) //every 3 mins
 
-  isMultiCalendar = JSON.parse(localStorage.multiCalendar || false);
-
-  chrome.browserAction.setIcon({path: '../images/icon-16.gif'});
-  badgeAnimation_.start();
-  CalendarManager.pollServer();
-  window.setInterval(redraw, DRAW_INTERVAL);
-
-  chrome.tabs.onUpdated.addListener(onTabUpdated);
-
-  chrome.browserAction.onClicked.addListener(function(tab) {
-    onClickAction();
-  });
-};
-
-//Adding listener when body is loaded to call init function.
-window.addEventListener('load', init, false);
+function fccUpdate() {
+  console.log("Updating FCC Extension...");
+  var chatters=0;
+  var title="";
+  
+    $.getJSON("http://www.funchatcam.com/api/online.php",function(result){
+    $.each(result, function(i, field){
+	chatters++;
+      });
+      console.log(result);
+        title = 'FCC ' + chatters + ' users online';
+	  chrome.browserAction.setBadgeText({text:chatters.toString()});
+		chrome.browserAction.setTitle({title:title})
+  });	
+}
