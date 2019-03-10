@@ -12,23 +12,6 @@
 
       $.each(result, function(i, field){
 
-        /**
-         * age: "38"
-chatpoints: "58345"
-chatserver_id: 84871
-chatserver_name: "FCC"
-chatserver_updated: "1552252443"
-client_version: "4.0.1.10"
-funtokens: "913794"
-gender: "1"
-pro: 1
-room: "Lobby"
-updated: 1552252442
-updated_nice: "10th March 2019 - 21:14:02"
-user_id: 8
-username: "Satchmo"
-         */
-
         gender = 'male';
         if(result[i].gender == '1') gender = 'male';
         if(result[i].gender == '2') gender = 'female';
